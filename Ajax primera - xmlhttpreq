@@ -1,0 +1,55 @@
+// Ajax primera parte - XMLHttpRequest
+
+//https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
+
+function reqListener () {
+  console.log(this.responseText);
+}
+
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "http://www.example.org/example.txt");
+oReq.send();
+
+
+/// ---- Array.prototype.map()
+
+var numbers = [1, 5, 10, 15];
+var doubles = numbers.map(function(x) {
+   return x * 2;
+});
+
+console.log(doubles);
+// doubles is now [2, 10, 20, 30]
+// numbers is still [1, 5, 10, 15]
+
+var numbers = [1, 4, 9];
+var roots = numbers.map(function(num) {
+    return Math.sqrt(num);
+});
+// roots is now [1, 2, 3]
+// numbers is still [1, 4, 9]
+
+
+var kvArray = [{clave:1, valor:10},
+               {clave:2, valor:20},
+               {clave:3, valor: 30}];
+
+var reformattedArray = kvArray.map(function(obj){
+   var rObj = {};
+   rObj[obj.clave] = obj.valor;
+   return rObj;
+});
+
+// reformattedArray es ahora [{1:10}, {2:20}, {3:30}],
+
+// kvArray sigue siendo:
+// [{clave:1, valor:10},
+//  {clave:2, valor:20},
+//  {clave:3, valor: 30}]
+
+
+var map = Array.prototype.map;
+var valores = map.call('Hello World', function(char) { return char.charCodeAt(0); });
+// valores ahora tiene [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
+

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="/css/styles.css" rel="stylesheet" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container">
+      
+      <table class="table">
+        <thead class="table-dark">
+          <nav class="navbar  navbar-dark bg-dark navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/veterinaria/index.html">Veterinaria</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/veterinaria/index.html">Mascotas</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" href="/veterinaria/veterinarias.html" tabindex="-1" aria-disabled="true">Veterinar@s</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/veterinaria/consultras.html">Consultas</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/veterinaria/duenos.html">Dueños</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+          <div class="actions-menu">
+            <div class="p-1"> Mascotas </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Nueva
+            </button>
+          </div>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Dueño</th>
+            <th scope="col"> </th>
+          </tr>
+        </thead>
+        <tbody id="lista-mascotas">
+         
+        </tbody>
+      </table>
+
+      <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <form id="form">
+    <input type="hidden" id="indice">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <select id="tipo" class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <option selected>Tipo de mascota</option>
+            <option >Perro</option>
+            <option >Gato</option>
+            <option >Pajaro</option>
+            <option >Otro</option>
+          </select>
+          <div class="mb-3">
+            <input type="text" id="nombre" class="form-control" name="nombre" class="form-control" placeholder="Nombre">
+          </div>
+          <div class="mb-3">
+            <select id="dueno" class="form-select form-select-sm" aria-label=".form-select-sm example">
+              <option selected>Dueño</option>
+              <option>E</option>
+              <option>g</option>
+              <option>J</option>
+              <option>F</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="btn-guardar">Guardar</button>
+        </div>
+      </div>
+      
+    </div>
+
+  </form>
+</div>
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="js/mascostas.js"></script>
+  </body>
+</html>

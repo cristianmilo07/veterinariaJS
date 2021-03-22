@@ -1,0 +1,54 @@
+// Ajax segunda parte fetch API
+
+fetch(myRequest)
+  .then(response => response.blob())
+  .then(blob => {
+    myImage.src = URL.createObjectURL(blob);
+  });
+
+//---
+
+const bodyUsuario = document.getElementById('body-usuario')
+
+let usuario = {};
+
+function tomarIndiceUsuario() {
+  return location.search.replace('?', '').split('=')[1];
+}
+
+function obtenerUsuario() {
+  fetch(`https://bootcamp-dia-3.camilomontoyau.now.sh/usuarios/${tomarIndiceUsuario()}`)
+  .then(response=>response.json())
+  .then(respuestaUsuario=>{
+    console.log('respuestaUsuario', respuestaUsuario)
+    usuario = respuestaUsuario
+    render();
+  })
+}
+
+function render() {
+  const usuarioRender = `<tr><td class="campo-usuario" >Nombre</td><td>${usuario.nombre ? usuario.nombre : 'vacio'}</td></tr>
+                        <tr><td class="campo-usuario" >Apellido</td><td>${usuario.apellido ? usuario.apellido : 'vacio'}</td></tr>
+                        <tr><td class="campo-usuario" >País</td><td>${usuario.pais ? usuario.pais : 'vacio'}</td></tr>`;
+  console.log(usuarioRender);
+  bodyUsuario.innerHTML = usuarioRender;
+}
+
+obtenerUsuario()
+
+/// ---
+
+fetch(myRequest)
+  .then(response => {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      throw new Error('Something went wrong on api server!');
+    }
+  })
+  .then(response => {
+    console.debug(response);
+    // ...
+  }).catch(error => {
+    console.error(error);
+  });
